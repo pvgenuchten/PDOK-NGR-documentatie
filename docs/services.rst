@@ -346,6 +346,7 @@ De belangrijkste WMTS GET requests zijn
 
 - **GetCapabilities**: retourneert de *Capabilities* document die de beschikbare kaartlagen en grids (per projectie) beschrijft 
 - **GetTile**: retourneert een kaarttegel als PNG/JPG
+- **GetFeatureInfo**: geeft attribuut informatie van een aangeklikt object (zie WMS)
 
 Zie de `WMTS speficitatie <http://www.opengeospatial.org/standards/wmts>`_ voor meer informatie. 
 
@@ -527,11 +528,19 @@ Hoewel TMS geen OGC standaard is wordt het out-of-the-box door Leaflet en OpenLa
     
 .. _OGC-CSW:
 
+**************************
+Web Coverage Service (WCS)
+**************************
+
+Datasets die bestaan uit een grid van waarden, oftewel coverages, worden over het algemeen ontsloten via Web Coverage Services. Voorbeelden zijn de tot coverage omgezette puntenwolk uit het AHN. Ook resultaten van ruimtelijke reken modellen (geluid, luchtkwaliteit etc) worden vaak als coverage opgeslagen.
+
+Voor het bevragen van een Web Coverage Service is het gebruik van een WCS client, zoals QGIS, aan te raden. NGR is momenteel niet in staat een WCS te visualiseren of data uit een WCS ter download aan te bieden.
+
 **********
 Atom feeds
 **********
 
-Een aantal landsdekkende datasets worden als downloadbare bestanden aangeboden via Atom feeds. Atom feeds zijn webfeeds die, net zoals RSS, geabonneerde gebruikers automatisch op de hoogte brengen van nieuwe releases en updates.
+Diverse datasets worden als downloadbare bestanden aangeboden vanuit Atom feeds. Atom feeds zijn webfeeds die, net zoals RSS, geabonneerde gebruikers automatisch op de hoogte brengen van nieuwe releases en updates. Atom is door de INSPIRE community naar voren geschoven als alternatieve download service naast WFS voor data downlaods (http://inspire.jrc.ec.europa.eu/documents/Network_Services/Technical_Guidance_Download_Services_v3.1.pdf).
 
 Open de Atom feed in een feed reader (bijv. `Feedly <https://feedly.com>`_) of Firefox om de bijgesloten ZIP bestanden te downloaden. Indien deze niet beschikbaar zijn is het bestand ook via het ``entry`` -> ``link`` element te downloaden, zie regels 9-10 in onderstaand voorbeeld.
 
@@ -564,7 +573,7 @@ Atom feeds in het NGR zijn te vinden door het Online Bronnen filter ``Atom`` te 
 Catalogue Service for the Web (CSW)
 ***********************************
 
-Het Nationaal GeoRegister (NGR) is een *catalogus* met informatie over ruimtelijke datasets en services. De CSW API stelt ons in staat om door de metadata in het NGR te zoeken. Zie de OGC `CSW specificatie`_ voor meer informatie.
+Het Nationaal GeoRegister (NGR) is een *catalogus* met informatie over ruimtelijke datasets, dataset series en services. De CSW API stelt ons in staat om door de metadata in het NGR te zoeken. Zie de OGC `CSW specificatie`_ voor meer informatie.
 
 De CSW endpoint wordt via HTTP GET of XML over HTTP POST requests bevraagd. De belangrijkste operaties om metadata op te vragen zijn:
 
